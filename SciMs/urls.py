@@ -20,8 +20,6 @@ urlpatterns = [
 
 
 
-    url(r'^admin/', admin.site.urls),
-
-
+    url(r'^admin/dd', admin.site.urls),
 
 ]
