@@ -5,3 +5,7 @@ from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("SciMs Index.")
+
+
+def register(request):
+    return None

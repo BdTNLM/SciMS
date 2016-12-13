@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'scims.apps.ScimsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -124,3 +125,4 @@ STATICFILES_DIRS = [
     '/var/www/static/',
 ]
 
+LOGIN_REDIRECT_URL = '/'
