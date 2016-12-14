@@ -1,9 +1,9 @@
 {% extends "base.html" %}
-
+{% load scims_extras %}
 {% block content %}
     <ul>
     {% for article in listeArticle %}
-        <li><a href="{% url 'article' article.title %} ">{{ article.title }}</a></li>
+            <li><a href="{% url 'article'  article.categorie article.title %} ">{{ article.title }}</a></li>
     {% endfor %}
     </ul>
 {% endblock %}

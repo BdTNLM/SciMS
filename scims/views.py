@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Article
 from django.http import Http404
+from .templatetags.scims_extras import addstr
 # Create your views here.
 
 def index(request):
@@ -11,7 +12,7 @@ def index(request):
 def register(request):
     return None
 
-def article(request,article_name):
+def article(request, categorie, article_name):
     try:
         article = Article.objects.get(pk=article_name)
 
