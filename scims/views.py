@@ -11,7 +11,6 @@ def index(request):
 def register(request):
     return None
 
-
 def article(request,article_name):
     try:
         article = Article.objects.get(pk=article_name)
