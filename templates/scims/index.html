@@ -1,9 +1,33 @@
 {% extends "base.html" %}
 {% load scims_extras %}
+
+{% block header %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static "index.css" %}" >
+{% endblock %}
 {% block content %}
-    <ul>
-    {% for article in listeArticle %}
-            <li><a href="{% url 'article'  article.categorie article.title %} ">{{ article.title }}</a></li>
-    {% endfor %}
-    </ul>
+
+
+        <ul id="menu-demo2">
+            {% for categorie in liste_categorie %}
+                <li><a href="#">{{ categorie }}</a>
+                    <ul>
+                        {% for sous_categorie in liste_sous_categorie %}
+                             {% if sous_categorie.mere == categorie %}
+                                <li><a href="#">{{ sous_categorie }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+
+
+
+        <ul>
+            {% for article in liste_article %}
+                <li><a href="{% url 'article'  article.categorie article.title %} ">{{ article.title }}</a></li>
+            {% endfor %}
+        </ul>
+
 {% endblock %}
