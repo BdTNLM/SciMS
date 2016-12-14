@@ -9,7 +9,8 @@ class Categorie(models.Model):
         return self.nom
 
 class Article(models.Model):
-    title = models.CharField(max_length=200,primary_key=True)
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=200,unique=True)
     date = models.DateTimeField('date published')
     content = models.TextField()
     categorie = models.ForeignKey(Categorie)

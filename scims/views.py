@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Article
 from django.http import Http404
 from .templatetags.scims_extras import addstr
+from django.shortcuts import get_object_or_404
 # Create your views here.
 
 def index(request):
@@ -13,9 +14,5 @@ def register(request):
     return None
 
 def article(request, categorie, article_name):
-    try:
-        article = Article.objects.get(pk=article_name)
-
-    except Article.DoesNotExist:
-        raise Http404("Question doesn't exist")
+    article=get_object_or_404(Article,title=article_name)
     return render(request, 'scims/article.html', {'article': article})
